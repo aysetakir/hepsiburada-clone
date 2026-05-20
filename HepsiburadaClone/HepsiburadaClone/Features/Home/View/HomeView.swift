@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  HepsiburadaClone
-//
-//  Created by naxxt on 18.05.2026.
-//
-
 import SwiftUI
 
 struct HomeView: View {

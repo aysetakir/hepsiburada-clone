@@ -5,11 +5,11 @@ struct TabBarItem: View {
     let icon: String
     let title: String
     let isSelected: Bool
-    let action: () -> Void
-    
+  //  let action: () -> Void
+   // @State var selectedTab: 
     var body: some View {
         Button {
-            print("tıkla")
+            
         } label: {
             VStack {
                 Image(systemName: icon)
