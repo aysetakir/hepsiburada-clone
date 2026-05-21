@@ -1,25 +1,37 @@
 import SwiftUI
 
 struct TabBarView: View {
-
+    
+    @Binding var selectedTab: AppTab
+    
     var body: some View {
+        
         HStack {
             Spacer()
-            TabBarItem(icon: "house", title: "Ana Sayfam")
+            TabBarItem(icon: "house", title: "Ana Sayfam", isSelected: selectedTab == .home) {
+                selectedTab = .home
+            }
             Spacer()
-            TabBarItem(icon: "heart", title: "Listelerim")
+            TabBarItem(icon: "heart", title: "Listelerim", isSelected: selectedTab == .favorites) {
+                selectedTab = .favorites
+            }
             Spacer()
-            TabBarItem(icon: "cart", title: "Sepetim")
+            TabBarItem(icon: "cart", title: "Sepetim", isSelected: selectedTab == .cart) {
+                selectedTab = .cart
+            }
             Spacer()
-            TabBarItem(icon: "person", title: "Hesabım")
+            TabBarItem(icon: "person", title: "Hesabım", isSelected: selectedTab == .profile) {
+                selectedTab = .profile
+            }
             Spacer()
-            TabBarItem(icon: "message", title: "Mesajlarım")
+            TabBarItem(icon: "message", title: "Mesajlarım", isSelected: selectedTab == .messages) {
+                selectedTab = .messages
+            }
             Spacer()
-        } 
+        }
         .foregroundStyle(.gray.opacity(0.9))
+        .padding(.top, 12)
+      //  .padding(.bottom, 28)
     }
 }
 
-#Preview {
-    TabBarView()
-}

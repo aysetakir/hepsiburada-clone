@@ -1,8 +1,31 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var viewModel = HomeViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewModel.banners) { banner in
+                        BannerSliderView(banner: banner)
+                    }
+                }
+            }
+            .scrollIndicators(.hidden)
+            .scrollTargetBehavior(.paging)
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewModel.categories) { category in
+                        CategoryCardView(category: category)
+                    }
+                }
+            }
+            .scrollIndicators(.hidden)
+        }
+        .padding(.leading)
     }
 }
 
