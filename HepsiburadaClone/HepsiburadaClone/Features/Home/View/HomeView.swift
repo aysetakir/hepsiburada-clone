@@ -7,12 +7,16 @@ struct HomeView: View {
     var body: some View {
         VStack {
             ScrollView(.horizontal) {
-                HStack {
+                HStack(spacing: 0) {
                     ForEach(viewModel.banners) { banner in
                         BannerSliderView(banner: banner)
+                            .scrollTransition { content, phase in
+                                content.opacity(phase.isIdentity ? 1 : 0.8)
+                            }
                     }
                 }
-            }
+                .scrollTargetLayout()
+            } 
             .scrollIndicators(.hidden)
             .scrollTargetBehavior(.paging)
             
@@ -23,9 +27,9 @@ struct HomeView: View {
                     }
                 }
             }
+            .padding(.leading)
             .scrollIndicators(.hidden)
         }
-        .padding(.leading)
     }
 }
 
