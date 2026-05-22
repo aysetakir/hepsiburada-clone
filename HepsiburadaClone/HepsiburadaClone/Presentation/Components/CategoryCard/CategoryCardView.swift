@@ -15,8 +15,8 @@ struct CategoryCardView: View {
         .frame(width: 60, height: 65)
         .padding()
         .background {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.gray.opacity(0.1))
+            RoundedRectangle(cornerRadius: 12) 
+                .fill(.card)
         }
       
         

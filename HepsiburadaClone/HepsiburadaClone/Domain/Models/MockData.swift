@@ -93,9 +93,15 @@ struct MockData {
     ]
     
     static let campaigns: [Campaign] = [
-        Campaign(id: "1", imageURL: "https://picsum.photos/640/200?random=20", title: "Adidas", subtitle: "%19 Net İndirim"),
-        Campaign(id: "2", imageURL: "https://picsum.photos/640/200?random=21", title: "Anne & Çocuk", subtitle: "%10 Net İndirim"),
-        Campaign(id: "3", imageURL: "https://picsum.photos/640/200?random=22", title: "U.S. Polo", subtitle: "%60'a Varan İndirim"),
-        Campaign(id: "4", imageURL: "https://picsum.photos/640/200?random=23", title: "Flaş Teklif", subtitle: "Alışverişe Özel"),
+        Campaign(id: "1", imageURL: "https://picsum.photos/200/200?random=20", title: "Adidas", subtitle: "%19 Net İndirim"),
+        Campaign(id: "2", imageURL: "https://picsum.photos/200/200?random=21", title: "Anne & Çocuk", subtitle: "%10 Net İndirim"),
+        Campaign(id: "3", imageURL: "https://picsum.photos/200/200?random=22", title: "U.S. Polo", subtitle: "%60'a Varan İndirim"),
+        Campaign(id: "4", imageURL: "https://picsum.photos/200/200?random=23", title: "Flaş Teklif", subtitle: "Sana Özel"),
+        Campaign(id: "5", imageURL: "https://picsum.photos/200/200?random=22", title: "Adidas", subtitle: "%80'e Varan İndirim"),
+        Campaign(id: "6", imageURL: "https://picsum.photos/200/200?random=23", title: "Flaş", subtitle: "%20 İndirim"),
+    ]
+    
+    static let brands: [String] = [
+        "Nike", "Apple", "Samsung", "Dyson", "Sony", "Adidas", "LG", "Philips"
     ]
 }
