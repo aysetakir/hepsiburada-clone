@@ -10,7 +10,7 @@ struct BannerSliderView: View {
                 Image(imageName)
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 180)
+                    .frame(height: 130)
                     .frame(maxWidth: .infinity)
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 16))

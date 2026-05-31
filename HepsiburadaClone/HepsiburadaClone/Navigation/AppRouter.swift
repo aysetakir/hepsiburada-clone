@@ -12,7 +12,7 @@ struct AppRouter: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             switch selectedTab {
-            case .home:      Text("HOME").frame(maxWidth: .infinity, maxHeight: .infinity)
+            case .home: HomeView().frame(maxWidth: .infinity, maxHeight: .infinity)
             case .favorites: Text("FAVORITES").frame(maxWidth: .infinity, maxHeight: .infinity)
             case .cart:      Text("CART").frame(maxWidth: .infinity, maxHeight: .infinity)
             case .profile:   Text("PROFILE").frame(maxWidth: .infinity, maxHeight: .infinity)

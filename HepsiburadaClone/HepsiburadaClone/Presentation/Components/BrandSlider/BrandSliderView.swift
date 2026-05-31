@@ -7,16 +7,17 @@ struct BrandSliderView: View {
         ScrollView(.horizontal){
             LazyHStack {
                 ForEach(brands, id: \.self) { brand in
-                    Text(brand)
-                        .font(.caption)
-                       // .padding(24)
-                        .padding()
-                        .background(.card)
-                        .clipShape(Circle())
+                    ZStack {
+                        Circle()
+                            .fill(.gray.opacity(0.1))
+                            .frame(width: screenWidth * 0.2)
+                        Text(brand)
+                    }
                 }
             }
+            .padding(.horizontal)
         }
-        
+        .scrollIndicators(.hidden)
     }
 }
 
