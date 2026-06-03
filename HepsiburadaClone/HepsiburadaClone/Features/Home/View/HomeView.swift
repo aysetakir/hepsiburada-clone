@@ -4,7 +4,7 @@ struct HomeView: View {
     
     @State private var viewModel = HomeViewModel()
     @State private var userText = ""
-    @State private var animateLines = false
+    @State private var animateLines = false 
     
     var body: some View {
         ScrollView {
@@ -20,28 +20,28 @@ struct HomeView: View {
                     HStack(spacing: 0){
                         Rectangle()
                             .fill(.hepsiburadaOrange)
-                            .frame(width: animateLines ? screenWidth * 0.4 : 3 ,height: 3)
+                            .frame(width: animateLines ? (screenWidth - 16) * 0.5 : 3 ,height: 3)
                             .animation(.easeInOut(duration: 1), value: animateLines)
                             .onAppear {
                                 animateLines = true
                             }
                         Rectangle()
                             .fill(.red)
-                            .frame(width: animateLines ? screenWidth * 0.2 : 3 ,height: 3)
+                            .frame(width: animateLines ? (screenWidth - 16) * 0.2 : 3 ,height: 3)
                             .animation(.easeInOut(duration: 1), value: animateLines)
                             .onAppear {
                                 animateLines = true
                             }
                         Rectangle()
                             .fill(.blue)
-                            .frame(width: animateLines ? screenWidth * 0.2 : 3 ,height: 3)
+                            .frame(width: animateLines ? (screenWidth - 16) * 0.2 : 3 ,height: 3)
                             .animation(.easeInOut(duration: 1), value: animateLines)
                             .onAppear {
                                 animateLines = true
                             }
                         Rectangle()
                             .fill(.red)
-                            .frame(width: animateLines ? screenWidth * 0.1 : 3 ,height: 3)
+                            .frame(width: animateLines ? (screenWidth - 16) * 0.1: 3 ,height: 3)
                             .animation(.easeInOut(duration: 1), value: animateLines)
                             .onAppear {
                                 animateLines = true
@@ -49,7 +49,7 @@ struct HomeView: View {
                     }
                 }
                 .border(Color.gray.opacity(0.2), width: 2)
-                .padding(.horizontal) 
+                .padding(.horizontal, 8)
                
                 
                 BannerSliderView()
@@ -62,7 +62,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                 }
-                .frame(height: 110)
+                .frame(height: 80)
                 .scrollIndicators(.hidden)
                 
                 VStack(alignment: .leading, spacing: 0) {
@@ -91,12 +91,28 @@ struct HomeView: View {
                 
                 BannerSliderView()
                 
+                VStack(alignment: .leading){
+                    Text("Bunlar da ilgini çekebilir")
+                        .fontWeight(.bold)
+                        .padding()
+                    
+                    let columns = [GridItem(.flexible(), spacing: 25), GridItem(.flexible(), spacing: 25)]
+
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(viewModel.products) { product in
+                            NavigationLink(destination: ProductDetailView(product: product)) {
+                                ProductCardView(product: product)
+                            }
+                        }
+                    }
+                    .foregroundStyle(.black)
+                    .padding(.horizontal)
+                }
                 
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 
-#Preview {
-    HomeView()
-}
+

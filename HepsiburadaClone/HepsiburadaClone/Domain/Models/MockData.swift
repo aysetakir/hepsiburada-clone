@@ -15,7 +15,7 @@ struct MockData {
         ),
         Product(
             id: "2",
-            name: "Samsung 65\" 4K Smart TV",
+            name: "Samsung 65\" 4K TV",
             price: 18499,
             originalPrice: 21999,
             imageURL: "https://picsum.photos/400/400?random=2",
@@ -39,7 +39,7 @@ struct MockData {
         ),
         Product(
             id: "4",
-            name: "Dyson V15 Detect Süpürge",
+            name: "Dyson V15 Detect",
             price: 14999,
             originalPrice: 17999,
             imageURL: "https://picsum.photos/400/400?random=4",
@@ -63,7 +63,7 @@ struct MockData {
         ),
         Product(
             id: "6",
-            name: "Sony WH-1000XM5 Kulaklık",
+            name: "Sony WH-1000XM5",
             price: 8499,
             originalPrice: 9999,
             imageURL: "https://picsum.photos/400/400?random=6",
@@ -102,6 +102,6 @@ struct MockData {
     ]
     
     static let brands: [String] = [
-        "Nike", "Apple", "Samsung", "Dyson", "Sony", "Adidas", "LG", "Philips"
+        "Nike", "Apple", "Dyson", "Sony", "Adidas", "LG", "Philips"
     ]
 }

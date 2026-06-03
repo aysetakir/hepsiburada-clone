@@ -31,7 +31,6 @@ struct TabBarView: View {
         }
         .foregroundStyle(.gray.opacity(0.9))
         .padding(.top, 12)
-      //  .padding(.bottom, 28)
     }
 }
 

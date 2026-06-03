@@ -10,7 +10,7 @@ struct BrandSliderView: View {
                     ZStack {
                         Circle()
                             .fill(.gray.opacity(0.1))
-                            .frame(width: screenWidth * 0.2)
+                            .frame(width: screenWidth * 0.18)
                         Text(brand)
                     }
                 }
