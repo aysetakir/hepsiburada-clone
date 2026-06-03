@@ -12,8 +12,8 @@ struct TabBarView: View {
                 selectedTab = .home
             }
             Spacer()
-            TabBarItem(icon: "heart", title: "Listelerim", isSelected: selectedTab == .favorites) {
-                selectedTab = .favorites
+            TabBarItem(icon: "heart", title: "Listelerim", isSelected: selectedTab == .lists) {
+                selectedTab = .lists
             }
             Spacer()
             TabBarItem(icon: "cart", title: "Sepetim", isSelected: selectedTab == .cart) {
