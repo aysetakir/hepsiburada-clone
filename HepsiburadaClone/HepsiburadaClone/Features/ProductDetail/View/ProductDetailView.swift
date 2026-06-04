@@ -2,11 +2,22 @@ import SwiftUI
 
 struct ProductDetailView: View {
     @State private var viewModel = HomeViewModel()
+    @State private var showToolbar = true
     let product: Product
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                
+                GeometryReader { geo in
+                    Color.clear
+                        .onChange(of: geo.frame(in: .named("scroll")).minY) { oldVal, newVal in
+                            if newVal < oldVal {
+                                showToolbar = false
+                            } else {
+                                showToolbar = true
+                            }
+                        }
+                }
+                .frame(height: 0)
                 AsyncImage(url: URL(string: product.imageURL)) { phase in
                     switch phase {
                     case .empty:
@@ -140,7 +151,9 @@ struct ProductDetailView: View {
             }
         }
         .scrollIndicators(.hidden)
-        
+        .coordinateSpace(name: "scroll")
+        .toolbar(showToolbar ? .visible : .hidden, for: .navigationBar)
+        .animation(.easeInOut(duration: 0.3), value: showToolbar)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {

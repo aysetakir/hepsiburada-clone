@@ -1,3 +1,4 @@
+import Foundation
 struct MockData {
     
     static let products: [Product] = [
@@ -71,7 +72,7 @@ struct MockData {
             brand: "Sony",
             rating: 4.7,
             reviewCount: 987,
-            isFavorite: false
+            isFavorite: true
         ),
     ]
     
@@ -104,4 +105,14 @@ struct MockData {
     static let brands: [String] = [
         "Nike", "Apple", "Dyson", "Sony", "Adidas", "LG", "Philips"
     ]
+    
+    static let userLists: [UserList] = [
+        UserList(id: "1", name: "Elektronik Listesi", products: [products[0], products[4]], createdAt: Date()),
+        UserList(id: "2", name: "Ev Aletleri", products: [products[3]], createdAt: Date()),
+    ]
+    
+    static var favoriteProducts: [Product] {
+        products.filter { $0.isFavorite }
+    }
+    
 }

@@ -14,7 +14,7 @@ struct AppRouter: View {
             NavigationStack {
                 switch selectedTab {
                 case .home: HomeView().frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .lists: Text("FAVORITES").frame(maxWidth: .infinity, maxHeight: .infinity)
+                case .lists: ListsView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .cart:      Text("CART").frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .profile:   Text("PROFILE").frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .messages:  Text("MESSAGES").frame(maxWidth: .infinity, maxHeight: .infinity)

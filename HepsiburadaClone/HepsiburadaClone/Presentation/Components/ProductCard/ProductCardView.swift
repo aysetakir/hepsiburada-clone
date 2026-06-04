@@ -68,8 +68,8 @@ struct ProductCardView: View {
             Button {
                     print("favorilendi")
                 } label: {
-                    Image(systemName: "heart")
-                        .foregroundStyle(Color.gray)
+                    Image(systemName: product.isFavorite ? "heart.fill" :  "heart")
+                        .foregroundStyle(product.isFavorite ? Color.hepsiburadaOrange : Color.gray)
                         .padding(6)
                         .background(.white)
                         .clipShape(Circle())
