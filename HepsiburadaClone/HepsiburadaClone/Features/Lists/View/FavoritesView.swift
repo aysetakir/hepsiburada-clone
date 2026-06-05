@@ -20,6 +20,7 @@ struct FavoritesView: View {
                 Spacer()
                 HStack {
                     Text("\(viewModel.favoriteProducts.count)")
+                        .fontWeight(.bold)
                     Text("Ürün")
                 }
             }
@@ -29,12 +30,87 @@ struct FavoritesView: View {
             VStack {
                 
                 HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("Beğendiklerimde ara", text: $userText)
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        TextField("Beğendiklerimde ara", text: $userText)
+                            .font(.callout)
+                        
+                    }
+                    .padding(8)
+                    .background(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(.gray.opacity(0.5))
+                    )
+                    
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .padding(8)
+                    .background(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(.gray.opacity(0.5))
+                    )
                 }
+                .padding(.horizontal)
+                .padding(.top)
                 
-                
-                
+                HStack {
+                    Button{} label: {
+                        Image(systemName: "arrow.up.arrow.down")
+                            .foregroundColor(.gray)
+                            .padding(5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white)
+                                    .stroke(.gray.opacity(0.2))
+                            )
+                            
+                    }
+                    Button{} label: {
+                        Text("Kategoriler")
+                            .foregroundColor(.gray)
+                                  .lineLimit(1)
+                                  .fixedSize()
+                                  .padding(5)
+                                  .background(
+                                      RoundedRectangle(cornerRadius: 8)
+                                          .fill(.white)
+                                          .stroke(.gray.opacity(0.2))
+                                  )
+                           
+                    }
+                    Button{} label: {
+                        Text("Stoktakiler")
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
+                            .fixedSize()
+                            .padding(5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white)
+                                    .stroke(.gray.opacity(0.2))
+                            )
+                    }
+                    Button{} label: {
+                        Text("Fiyatı Düşenler")
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
+                            .fixedSize()
+                            .padding(5)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white)
+                                    .stroke(.gray.opacity(0.2))
+                            )
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .font(.footnote)
+                .fontWeight(.bold)
                 
                 let columns = [GridItem(.flexible(), spacing: 25), GridItem(.flexible(), spacing: 25)]
                 LazyVGrid(columns: columns, spacing: 12) {
@@ -44,11 +120,15 @@ struct FavoritesView: View {
                         }
                     }
                     .foregroundStyle(.black)
-                    .padding(.horizontal)
                 }
+                .padding(.horizontal)
+                
+                BannerSliderView()
             }
+            
             .background(.gray.opacity(0.1))
         }
+      
     }
 }
 

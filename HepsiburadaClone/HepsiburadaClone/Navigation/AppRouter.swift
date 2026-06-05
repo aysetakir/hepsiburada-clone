@@ -22,7 +22,6 @@ struct AppRouter: View {
                 
                 TabBarView(selectedTab: $selectedTab)
                     .background(.white)
-                    .shadow(color: .black.opacity(0.1), radius: 10, y: -5)
             }
         }
     }
