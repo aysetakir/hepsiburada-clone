@@ -46,6 +46,10 @@ HepsiburadaClone/
 2. Open `HepsiburadaClone/HepsiburadaClone.xcodeproj` in Xcode.
 3. Select an iOS 17+ simulator and run.
 
+## Disclaimer
+
+This is an educational/portfolio project and is **not affiliated with, endorsed by, or sponsored by Hepsiburada**. All brand names, logos, and trademarks referenced in this project belong to their respective owners and are used here for non-commercial, illustrative purposes only.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
