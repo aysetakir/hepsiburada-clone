@@ -115,4 +115,10 @@ struct MockData {
         products.filter { $0.isFavorite }
     }
     
+    static let cartItems: [CartItem] = [
+        CartItem(id: "1", product: products[0], quantity: 1),
+        CartItem(id: "2", product: products[4], quantity: 2),
+        CartItem(id: "3", product: products[2], quantity: 1),
+    ]
+    
 }
