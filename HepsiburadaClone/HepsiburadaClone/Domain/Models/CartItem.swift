@@ -1,5 +1,5 @@
 struct CartItem: Identifiable {
     let id: String
-    let product: Product
+    let item: Product
     var quantity: Int
 }
