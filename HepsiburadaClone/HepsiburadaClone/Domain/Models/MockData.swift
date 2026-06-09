@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 struct MockData {
     
     static let products: [Product] = [
@@ -118,6 +119,14 @@ struct MockData {
     static let cartItems: [CartItem] = [
         CartItem(id: "1", item: products[0], quantity: 1),
         CartItem(id: "2", item: products[4], quantity: 2)
+    ]
+    
+    
+    static let messages: [Message] = [
+        Message(id: "1", senderName: "Sana özel", lastMessage: "Siveno sinek ve kene kovucu sprey 339 TL...", time: "Dün", unreadCount: 58, color: .green, icon: "diamond"),
+        Message(id: "2", senderName: "Premium", lastMessage: "Premiumlulara net %10 Hepsipara kazandıracak ürünler yenilendi.", time: "Dün", unreadCount: 20, color: .pink, icon: "p.circle"),
+        Message(id: "3", senderName: "Hepsiburada", lastMessage: "Siparişiniz kargoya verildi.", time: "10:32", unreadCount: 2, color: .hepsiburadaOrange, icon: "cart"),
+        Message(id: "4", senderName: "Samsung", lastMessage: "Teknik destek için buradayız.", time: "12.05", unreadCount: 0, color: .blue, icon: "phone"),
     ]
     
 }

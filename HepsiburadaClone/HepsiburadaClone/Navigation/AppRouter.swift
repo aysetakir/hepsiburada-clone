@@ -17,7 +17,7 @@ struct AppRouter: View {
                 case .lists: ListsView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .cart: CartView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .profile: ProfileView().frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .messages:  Text("MESSAGES").frame(maxWidth: .infinity, maxHeight: .infinity)
+                case .messages: MessagesView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 
                 TabBarView(selectedTab: $selectedTab)
