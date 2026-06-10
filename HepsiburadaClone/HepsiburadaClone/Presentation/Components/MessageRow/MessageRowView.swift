@@ -22,7 +22,7 @@ struct MessageRowView: View {
             }
             .padding(.leading, 5)
             
-            Spacer() // ← bunu ekle
+            Spacer()
             
             VStack(alignment: .trailing) {
                 Text(message.time)
