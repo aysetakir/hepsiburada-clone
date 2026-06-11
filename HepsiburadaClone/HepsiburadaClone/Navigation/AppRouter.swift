@@ -6,7 +6,7 @@ enum AppTab {
  
 
 struct AppRouter: View {
-    
+    @Bindable var authViewModel: AuthViewModel
     @State private var selectedTab: AppTab = .home
     
     var body: some View {
@@ -16,13 +16,12 @@ struct AppRouter: View {
                 case .home: HomeView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .lists: ListsView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .cart: CartView().frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .profile: ProfileView().frame(maxWidth: .infinity, maxHeight: .infinity)
+                case .profile: ProfileView(viewModel: authViewModel ).frame(maxWidth: .infinity, maxHeight: .infinity)
                 case .messages: MessagesView().frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                
-                TabBarView(selectedTab: $selectedTab)
-                    .background(.white)
             }
+            TabBarView(selectedTab: $selectedTab)
+                .background(.white)
         }
     }
 }

@@ -13,12 +13,30 @@ class AuthViewModel {
     
     private let userRepository = UserRepository()
     
+    init() { 
+        isLoggedIn = userRepository.currentUserId != nil
+    }
+    
     func login() async {
         isLoading = true
         errorMessage = ""
         
         do {
             let _ = try await userRepository.login(email: email, password: password)
+            isLoggedIn = true
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        
+        isLoading = false
+    }
+    
+    func register() async {
+        isLoading = true
+        errorMessage = ""
+        
+        do {
+            let _ = try await userRepository.register(email: email, password: password)
             isLoggedIn = true
         } catch {
             errorMessage = error.localizedDescription

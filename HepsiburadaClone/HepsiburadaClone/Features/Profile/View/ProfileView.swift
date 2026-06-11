@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Bindable var viewModel : AuthViewModel
+    
     var body: some View {
         VStack(spacing: 0){
             VStack(alignment: .leading){
@@ -63,16 +65,19 @@ struct ProfileView: View {
                 Divider()
                 
                 ProfileMenuItem(icon: "headset", title: "Müşteri Hizmetleri")
-                Button{} label: {
+                Button{
+                    viewModel.logout()
+                } label: {
                     Text("Çıkış yap")
                         .font(.headline)
                         .foregroundStyle(.black.opacity(0.8))
+                        .frame(maxWidth: .infinity)
                         .padding(10)
                         .background(
                             RoundedRectangle(cornerRadius: 7)
                                 .fill(.white)
                                 .stroke(.gray)
-                                .frame(width: screenWidth - 20)
+                                //.frame(width: screenWidth - 20)
                         )
                 }
             }
@@ -84,6 +89,3 @@ struct ProfileView: View {
     }
 }
 
-#Preview {
-    ProfileView()
-}
