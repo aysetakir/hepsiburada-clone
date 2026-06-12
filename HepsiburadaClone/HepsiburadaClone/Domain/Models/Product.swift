@@ -1,6 +1,6 @@
 import Foundation
 
-struct Product: Identifiable {
+struct Product: Identifiable, Codable {
     let id: String
     let name: String
     let price: Double

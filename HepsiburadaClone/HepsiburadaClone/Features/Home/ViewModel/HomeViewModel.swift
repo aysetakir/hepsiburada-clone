@@ -16,9 +16,13 @@ class HomeViewModel {
         fetchBrands()
     }
     
-    func fetchProducts() { self.products = MockData.products }
+    //func fetchProducts() { self.products = MockData.products }
     func fetchCategories() { self.categories = MockData.categories }
     func fetchBanners() { self.banners = MockData.banners }
     func fetchCampaigns() { self.campaigns = MockData.campaigns }
     func fetchBrands() { self.brands = MockData.brands }
+    
+    func fetchProducts() {
+        
+    }
 }
