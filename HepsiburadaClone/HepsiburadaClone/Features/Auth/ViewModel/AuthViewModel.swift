@@ -2,6 +2,7 @@ import SwiftUI
 
 @Observable
 class AuthViewModel {
+    var currentUser: AppUser?
     
     var email = ""
     var password = ""
@@ -10,11 +11,19 @@ class AuthViewModel {
     var errorMessage = ""
     var isLoading = false
     var isLoggedIn = false
-    
+      
     private let userRepository = UserRepository()
     
-    init() { 
+    init() {
         isLoggedIn = userRepository.currentUserId != nil
+    }
+    
+    func loadCurrentUser() async {
+        do {
+            currentUser = try await userRepository.fetchCurrentUser()
+        } catch {
+            print("kullanıcı yüklenemedi", error)
+        }
     }
     
     func login() async {
@@ -36,7 +45,7 @@ class AuthViewModel {
         errorMessage = ""
         
         do {
-            let _ = try await userRepository.register(email: email, password: password)
+            try await userRepository.register(email: email, password: password, fullName: fullName)
             isLoggedIn = true
         } catch {
             errorMessage = error.localizedDescription

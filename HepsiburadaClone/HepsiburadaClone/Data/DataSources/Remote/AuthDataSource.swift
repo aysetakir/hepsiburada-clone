@@ -22,6 +22,6 @@ final class AuthDataSource {
     }
     
     var currentUserId: String? {
-        Auth.auth().currentUser?.email
+        Auth.auth().currentUser?.uid
     }
 }

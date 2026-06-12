@@ -10,7 +10,7 @@ struct ProfileView: View {
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .center)
                 HStack {
-                    Text("AT")
+                    Text(initials)
                         .padding()
                         .background(.white)
                         .clipShape(Circle())
@@ -18,7 +18,7 @@ struct ProfileView: View {
                     VStack(alignment: .leading){
                         Text("Merhaba,")
                             .font(.callout)
-                        Text("Ayşegül Takır")
+                        Text(viewModel.currentUser?.fullName ?? "Misafir")
                             .font(.headline)
                     }
                     Spacer()
@@ -77,7 +77,6 @@ struct ProfileView: View {
                             RoundedRectangle(cornerRadius: 7)
                                 .fill(.white)
                                 .stroke(.gray)
-                                //.frame(width: screenWidth - 20)
                         )
                 }
             }
@@ -86,6 +85,17 @@ struct ProfileView: View {
             .offset(y: -14)
             Spacer()
         }
+        .task {
+            await viewModel.loadCurrentUser()
+        }
+    }
+    
+    private var initials: String {
+        let name = viewModel.currentUser?.fullName ?? ""
+        let parts = name.split(separator: " ")
+        let firstLetters = parts.prefix(2).compactMap { $0.first }
+        return String(firstLetters).uppercased()
     }
 }
+
 

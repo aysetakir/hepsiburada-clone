@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RegisterContent: View {
     @Bindable var viewModel: AuthViewModel
+    @State private var isPasswordVisible = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -23,12 +24,28 @@ struct RegisterContent: View {
                 .keyboardType(.emailAddress)
                 .textInputAutocapitalization(.never)
             
-            SecureField("Şifre", text: $viewModel.password)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(.gray.opacity(0.4))
-                )
+            HStack {
+                if isPasswordVisible {
+                    TextField("Şifre", text: $viewModel.password)
+                } else {
+                    SecureField("Şifre", text: $viewModel.password)
+                }
+                
+                Button{
+                    isPasswordVisible.toggle()
+                } label: {
+                    Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                        .frame(width: 24, height: 24)
+                        .foregroundStyle(.gray)
+                        .contentTransition(.symbolEffect(.replace))
+                }
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(.gray.opacity(0.4))
+            )
+            
             
             if !viewModel.errorMessage.isEmpty {
                 Text(viewModel.errorMessage)
@@ -38,7 +55,7 @@ struct RegisterContent: View {
             
             Button {
                 Task {
-                  await viewModel.register()
+                    await viewModel.register()
                 }
             } label: {
                 Text(viewModel.isLoading ? "Üye olunuyor..." : "Üye ol")
